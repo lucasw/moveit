@@ -12,6 +12,9 @@ moveit_build_options()
 find_package(Boost REQUIRED system filesystem date_time thread iostreams regex ${EXTRA_BOOST_COMPONENTS})
 find_package(Eigen3 REQUIRED)
 
+# find python/pybind early to detect consistent version with all dependencies
+find_package(pybind11_catkin REQUIRED)
+
 # TODO: Move collision detection into separate packages
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 find_package(Bullet 2.87)
@@ -76,7 +79,6 @@ COMPONENTS
   urdf
   visualization_msgs
   xmlrpcpp
-  pybind11_catkin
   pluginlib
   angles
 )
