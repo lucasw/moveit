@@ -2,6 +2,8 @@ set(MOVEIT_LIB_NAME moveit_python_tools)
 
 find_package(Python COMPONENTS Interpreter Development QUIET)
 
+include_directories(${PYTHON_INCLUDE_DIRS})
+
 add_library(${MOVEIT_LIB_NAME}
   src/pybind_rosmsg_typecasters.cpp
 )
